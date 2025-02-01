@@ -3,5 +3,5 @@ node_modules/
 public
 
 # config
-confing.js
+config.js
 .env.production
