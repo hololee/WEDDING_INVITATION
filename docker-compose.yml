@@ -1,0 +1,6 @@
+services:
+  app:
+    build: .
+    command: ["sh", "-c", "npm run clean && npm run build && npm run serve"]
+    ports:
+      - "1999:9000"
