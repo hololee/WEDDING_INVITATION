@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { Layout } from "antd";
 import styled from "styled-components";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -44,10 +44,27 @@ const IndexPage = () => {
       duration: 1500,
     });
   });
+
+  const audioRef = useRef(null);
+  useEffect(() => {
+    const enableAudio = () => {
+      if (audioRef.current) {
+        audioRef.current.play().catch(error => console.error("자동 재생 차단:", error));
+        document.removeEventListener("click", enableAudio);
+      }
+    };
+
+    document.addEventListener("click", enableAudio);
+
+    return () => {
+      document.removeEventListener("click", enableAudio);
+    };
+  }, []);
+
   return (
     <Wrapper>
-      <audio autoPlay loop>
-        <source src={Song} />
+      <audio ref={audioRef} loop>
+        <source src={Song} type="audio/mpeg" />
       </audio>
       <Title />
       <Greeting />
