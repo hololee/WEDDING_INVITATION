@@ -14,6 +14,7 @@ import CongratulatoryMoney from "../components/congratulatoryMoney";
 import Share from "../components/share";
 import Quote from "../components/quote";
 import Song from "../assets/song.mp3";
+import { GROOM_NAME, BRIDE_NAME, KAKAOTALK_SHARE_IMAGE } from "../../config";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -39,6 +40,32 @@ const BorderWrapper = styled.div`
 `;
 
 const IndexPage = () => {
+  useEffect(() => {
+    document.title = `${GROOM_NAME}❤${BRIDE_NAME} 결혼식에 초대합니다🤵👰`;
+
+    const metaTags = [
+      { property: "og:title", content: document.title },
+      { property: "og:description", content: "링크의 청첩장을 확인해주세요🤵👰" },
+      { property: "og:image", content: KAKAOTALK_SHARE_IMAGE },
+      { property: "og:url", content: "https://wedding.hololee.com" },
+    ];
+
+    metaTags.forEach(({ property, content }) => {
+      const meta = document.createElement("meta");
+      meta.setAttribute("property", property);
+      meta.content = content;
+      document.head.appendChild(meta);
+    });
+
+    return () => {
+      // 컴포넌트가 언마운트될 때 기존 태그 제거
+      metaTags.forEach(({ property }) => {
+        const meta = document.querySelector(`meta[property='${property}']`);
+        if (meta) meta.remove();
+      });
+    };
+  }, []);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.async = true;
