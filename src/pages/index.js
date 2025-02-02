@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import { Layout } from "antd";
 import styled from "styled-components";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "antd/dist/antd.css";
@@ -14,24 +13,9 @@ import CongratulatoryMoney from "../components/congratulatoryMoney";
 import Share from "../components/share";
 import Quote from "../components/quote";
 import Song from "../assets/song.mp3";
-import { GROOM_NAME, BRIDE_NAME, KAKAOTALK_SHARE_IMAGE } from "../../config";
-import { Helmet } from "react-helmet-async";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-export const getServerData = async () => {
-  return {
-    props: {
-      groomName: GROOM_NAME,
-      brideName: BRIDE_NAME,
-      ogImage: KAKAOTALK_SHARE_IMAGE,
-    },
-  };
-};
-
-// markup
-const { Footer } = Layout;
 
 const Wrapper = styled.div`
   background: #fefefe;
@@ -50,7 +34,7 @@ const BorderWrapper = styled.div`
   border-bottom: none;
 `;
 
-const IndexPage = ({ serverData }) => {
+const IndexPage = () => {
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -86,30 +70,20 @@ const IndexPage = ({ serverData }) => {
   }, []);
 
   return (
-    <>
-      <Helmet>
-        <title>{`${serverData.groomName}❤${serverData.brideName} 결혼식에 초대합니다🤵👰`}</title>
-        <meta property="og:title" content={`${serverData.groomName}❤${serverData.brideName} 결혼식에 초대합니다🤵👰`} />
-        <meta property="og:description" content="링크의 청첩장을 확인해주세요 💍" />
-        <meta property="og:image" content={serverData.ogImage} />
-        <meta property="og:url" content="https://wedding.hololee.com" />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      <Wrapper>
-        <BorderWrapper>
-          <audio ref={audioRef} loop>
-            <source src={Song} type="audio/mpeg" />
-          </audio>
-          <Title />
-          <Greeting />
-          <Gallery />
-          <Location />
-          <Quote />
-          <CongratulatoryMoney />
-        </BorderWrapper>
-        <Share />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <BorderWrapper>
+        <audio ref={audioRef} loop>
+          <source src={Song} type="audio/mpeg" />
+        </audio>
+        <Title />
+        <Greeting />
+        <Gallery />
+        <Location />
+        <Quote />
+        <CongratulatoryMoney />
+      </BorderWrapper>
+      <Share />
+    </Wrapper>
   );
 };
 
