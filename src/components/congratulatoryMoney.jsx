@@ -80,6 +80,22 @@ const SubContent = styled.p`
   margin: 5px;
 `;
 
+const SubBlueContent = styled.span`
+  font-size: 0.875rem;
+  font-family: "MaruBuri";
+  font-weight: 700;
+  color:rgb(55, 141, 222);
+  line-height: 1.75;
+`;
+
+const SubPinkContent = styled.span`
+  font-size: 0.875rem;
+  font-family: "MaruBuri";
+  font-weight: 700;
+  color:rgb(223, 27, 200);
+  line-height: 1.75;
+`;
+
 const CongratulatoryMoney = () => {
   const [groomVisible, setGroomVisible] = useState(false);
   const [brideVisible, setBrideVisible] = useState(false);
@@ -104,7 +120,7 @@ const CongratulatoryMoney = () => {
             twoToneColor="#829fe0"
           /> */}
           <br />
-          <SubContent>신랑측 계좌번호 확인</SubContent>
+          <SubContent><SubBlueContent>신랑</SubBlueContent>측 계좌번호 확인</SubContent>
         </ContactButton>
         <ContactButton data-aos="fade-in" onClick={() => setBrideVisible(true)}>
           {/* <CheckCircleTwoTone
@@ -112,11 +128,11 @@ const CongratulatoryMoney = () => {
             twoToneColor="#fe7daf"
           /> */}
           <br />
-          <SubContent>신부측 계좌번호 확인</SubContent>
+          <SubContent><SubPinkContent>신부</SubPinkContent>측 계좌번호 확인</SubContent>
         </ContactButton>
       </ButtonWrap>
       <Modal
-        title={<b>신랑측 계좌번호</b>}
+        title={<SubContent><SubBlueContent>신랑</SubBlueContent>측 계좌번호</SubContent>}
         visible={groomVisible}
         onOk={() => setGroomVisible(false)}
         onCancel={() => setGroomVisible(false)}
@@ -127,12 +143,12 @@ const CongratulatoryMoney = () => {
         ]}
       >
         <div>
-          <b>부 : {GROOM_FATHER_NAME}</b>
+          <SubContent>부 : {GROOM_FATHER_NAME}</SubContent>
           <Divider type="vertical" />
           <CopyToClipboard text={GROOM_FATHER_ACCOUNT_NUMBER}>
             <Button
               type="text"
-              style={{ padding: 0, margin: 0 }}
+              style={{ padding: 0, margin: 0, fontSize: "0.875rem", fontFamily: "MaruBuri", fontWeight: 400 }}
               onClick={() => message.success("계좌번호가 복사되었습니다.")}
             >
               {GROOM_FATHER_ACCOUNT_NUMBER}
@@ -140,12 +156,12 @@ const CongratulatoryMoney = () => {
           </CopyToClipboard>
         </div>
         <div style={{ marginTop: 24, marginBottom: 24 }}>
-          <b>모 : {GROOM_MOTHER_NAME}</b>
+          <SubContent>모 : {GROOM_MOTHER_NAME}</SubContent>
           <Divider type="vertical" />
           <CopyToClipboard text={GROOM_MOTHER_ACCOUNT_NUMBER}>
             <Button
               type="text"
-              style={{ padding: 0, margin: 0 }}
+              style={{ padding: 0, margin: 0, fontSize: "0.875rem", fontFamily: "MaruBuri", fontWeight: 400 }}
               onClick={() => message.success("계좌번호가 복사되었습니다.")}
             >
               {GROOM_MOTHER_ACCOUNT_NUMBER}
@@ -153,12 +169,12 @@ const CongratulatoryMoney = () => {
           </CopyToClipboard>
         </div>
         <div>
-          <b>신랑 {GROOM_NAME}</b>
+          <SubContent>신랑 : {GROOM_NAME}</SubContent>
           <Divider type="vertical" />
           <CopyToClipboard text={GROOM_ACCOUNT_NUMBER}>
             <Button
               type="text"
-              style={{ padding: 0, margin: 0 }}
+              style={{ padding: 0, margin: 0, fontSize: "0.875rem", fontFamily: "MaruBuri", fontWeight: 400 }}
               onClick={() => message.success("계좌번호가 복사되었습니다.")}
             >
               {GROOM_ACCOUNT_NUMBER}
@@ -167,7 +183,7 @@ const CongratulatoryMoney = () => {
         </div>
       </Modal>
       <Modal
-        title={<b>신부측 계좌번호</b>}
+        title={<SubContent><SubPinkContent>신부</SubPinkContent>측 계좌번호</SubContent>}
         visible={brideVisible}
         onOk={() => setBrideVisible(false)}
         onCancel={() => setBrideVisible(false)}
@@ -178,12 +194,12 @@ const CongratulatoryMoney = () => {
         ]}
       >
         <div>
-          <b>부 : {BRIDE_FATHER_NAME}</b>
+          <SubContent>부 : {BRIDE_FATHER_NAME}</SubContent>
           <Divider type="vertical" />
           <CopyToClipboard text={BRIDE_FATHER_ACCOUNT_NUMBER}>
             <Button
               type="text"
-              style={{ padding: 0, margin: 0 }}
+              style={{ padding: 0, margin: 0, fontSize: "0.875rem", fontFamily: "MaruBuri", fontWeight: 400 }}
               onClick={() => message.success("계좌번호가 복사되었습니다.")}
             >
               {BRIDE_FATHER_ACCOUNT_NUMBER}
@@ -191,12 +207,12 @@ const CongratulatoryMoney = () => {
           </CopyToClipboard>
         </div>
         <div style={{ marginTop: 24, marginBottom: 24 }}>
-          <b>모 :{BRIDE_MOTHER_NAME}</b>
+          <SubContent>모 :{BRIDE_MOTHER_NAME}</SubContent>
           <Divider type="vertical" />
           <CopyToClipboard text={BRIDE_MOTHER_ACCOUNT_NUMBER}>
             <Button
               type="text"
-              style={{ padding: 0, margin: 0 }}
+              style={{ padding: 0, margin: 0, fontSize: "0.875rem", fontFamily: "MaruBuri", fontWeight: 400 }}
               onClick={() => message.success("계좌번호가 복사되었습니다.")}
             >
               {BRIDE_MOTHER_ACCOUNT_NUMBER}
@@ -204,12 +220,12 @@ const CongratulatoryMoney = () => {
           </CopyToClipboard>
         </div>
         <div>
-          <b>신부 {BRIDE_NAME}</b>
+          <SubContent>신부 : {BRIDE_NAME}</SubContent>
           <Divider type="vertical" />
           <CopyToClipboard text={BRIDE_ACCOUNT_NUMBER}>
             <Button
               type="text"
-              style={{ padding: 0, margin: 0 }}
+              style={{ padding: 0, margin: 0, fontSize: "0.875rem", fontFamily: "MaruBuri", fontWeight: 400 }}
               onClick={() => message.success("계좌번호가 복사되었습니다.")}
             >
               {BRIDE_ACCOUNT_NUMBER}
