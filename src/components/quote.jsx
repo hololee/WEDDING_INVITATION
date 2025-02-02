@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import QuotePaper from "../assets/Quote.png";
-import Flower from "../assets/flower1.png";
 
 const Wrapper = styled.div`
   padding-top: 42px;
@@ -14,6 +13,7 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.span`
+  padding-bottom: 35px;
   display: block;
   margin: 0 auto;
   font-size: 1.3rem;
@@ -27,18 +27,10 @@ const Content = styled.span`
   background-position: center;
 `;
 
-const Image = styled.img`
-  display: block;
-  margin: 0 auto;
-  width: 1.375rem;
-  padding-bottom: 42px;
-`;
-
 const Quote = () => {
   return (
     <Wrapper>
-      <Image src={Flower} data-aos="fade-up" />
-      <Content data-aos="fade-up">
+      <Content data-aos="fade-in">
         장담하건대. 세상이 다 겨울이어도
         <br />
         우리 사랑은 늘봄처럼 따뜻하고
@@ -47,7 +39,6 @@ const Quote = () => {
         <br />
         <br />
         - 이수동, (사랑가) -
-        <br />
         <br />
       </Content>
     </Wrapper>

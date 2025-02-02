@@ -7,10 +7,9 @@ import {
   BRIDE_NAME,
 } from "../../config.js";
 import BackgroundVideo from "../assets/BackgroundVideo.mp4";
-import GroovePaper from "../assets/GroovePaper.png";
 
 const Layout = styled.div`
-  width: 70%;
+  width: 80%;
   overflow: hidden;
   margin: 0 auto;
 `;
@@ -21,10 +20,10 @@ const TitleWrapper = styled.div`
   padding-top: 42px;
   font-weight: 500 !important;
   color: var(--title-color);
-  animation: fadein 3s;
-  -moz-animation: fadein 3s; /* Firefox */
-  -webkit-animation: fadein 3s; /* Safari and Chrome */
-  -o-animation: fadein 3s; /* Opera */
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
 `;
 
 const VideoBackground = styled.video`
@@ -32,20 +31,36 @@ const VideoBackground = styled.video`
 `;
 
 const WeddingInvitation = styled.p`
-  font-size: 0.825rem;
+  font-size: 0.72rem;
+  font-family: "MaruBuri";
+  font-weight: 600;
   opacity: 0.45;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 `;
 
 const GroomBride = styled.p`
-  font-size: 1.5rem;
-  font-weight: bold;
-  opacity: 0.9;
-  margin-bottom: 16px;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  font-family: "MaruBuri";
+  font-weight: 600;
+  margin-bottom: 24px;
+`;
+
+const AndSymbol = styled.span`
+  padding-right: 10px;
+  padding-left: 10px;
+  vertical-align: -3px;
+  font-family: "Delux_Edition";
+  font-size: 1.2rem; /* 크기 조절 */
+  font-weight: 600;
+  margin-bottom: 24px;
 `;
 
 const Schedule = styled.p`
-  font-size: 1.06rem;
+  color: #323232;
+  font-size: 0.82rem;
+  font-family: "MaruBuri";
+  font-weight: 300;
   opacity: 0.65;
   margin-bottom: 24px;
 `;
@@ -53,9 +68,9 @@ const Title = () => {
   return (
     <Layout>
       <TitleWrapper>
-        <WeddingInvitation>WEDDING INVITATION</WeddingInvitation>
+        <WeddingInvitation>Wedding Invitation</WeddingInvitation>
         <GroomBride>
-          {GROOM_NAME} &#38; {BRIDE_NAME}
+          {GROOM_NAME} <AndSymbol>and</AndSymbol> {BRIDE_NAME}
         </GroomBride>
         <Schedule>
           {WEDDING_DATE}

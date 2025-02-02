@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Button, Divider, message, Modal } from "antd";
-import { CheckCircleTwoTone } from "@ant-design/icons";
 import styled from "styled-components";
 import CopyToClipboard from "react-copy-to-clipboard";
-import Flower from "../assets/flower3.png";
 import {
   GROOM_NAME,
   GROOM_ACCOUNT_NUMBER,
@@ -22,13 +20,15 @@ import {
 const Wrapper = styled.div`
   padding-top: 42px;
   padding-bottom: 18px;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
   text-align: center;
 `;
 
 const Title = styled.p`
   font-size: 1rem;
+  font-family: "MaruBuri";
+  font-weight: 600;
   color: var(--title-color);
   font-weight: bold;
   opacity: 0.85;
@@ -37,43 +37,47 @@ const Title = styled.p`
 
 const Content = styled.p`
   font-size: 0.875rem;
-  line-height: 1.75;
-  opacity: 0.75;
-  margin-bottom: 42px;
-`;
-
-const SubContent = styled.p`
-  font-size: 0.875rem;
+  font-family: "MaruBuri";
+  font-weight: 400;
   line-height: 1.75;
   opacity: 0.75;
   margin-bottom: 42px;
 `;
 
 const Description = styled.p`
-  font-size: 0.875rem;
+  font-size: 0.72rem;
+  font-family: "MaruBuri";
+  font-weight: 400;
   line-height: 1.75;
   opacity: 0.65;
   margin-top: 8px;
 `;
 
 const ButtonWrap = styled.div`
-  margin-bottom: 3.125rem;
+  margin-bottom: 2.125rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
 `;
+
 const ContactButton = styled.div`
-  width: 10.75rem;
-  border: 1px solid #efddde;
-  padding: 2.188rem 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 0 20px 10px;
+  background-color: rgb(233 233 233 / 20%);
+  border: 1px solid rgba(196, 175, 113, 0.31);
+  border-radius: 5px;
 `;
 
-const Image = styled.img`
-  display: block;
-  margin: 0 auto;
-  width: 1.375rem;
-  padding-bottom: 42px;
+const SubContent = styled.p`
+  font-size: 0.875rem;
+  font-family: "MaruBuri";
+  font-weight: 400;
+  line-height: 1.75;
+  opacity: 0.75;
+  margin: 5px;
 `;
 
 const CongratulatoryMoney = () => {
@@ -83,31 +87,30 @@ const CongratulatoryMoney = () => {
   return (
     <Wrapper>
       <Divider
-        data-aos="fade-up"
+        data-aos="fade-in"
         plain
         style={{ marginTop: 0, marginBottom: 32 }}
       >
         <Title>축하의 마음을 전하세요</Title>
       </Divider>
-      <Image src={Flower} />
-      <Content data-aos="fade-up">
+      <Content data-aos="fade-in">
         축하의 마음을 담아 축의금을 전달해 보세요.
       </Content>
 
       <ButtonWrap>
-        <ContactButton data-aos="fade-up" onClick={() => setGroomVisible(true)}>
-          <CheckCircleTwoTone
+        <ContactButton data-aos="fade-in" onClick={() => setGroomVisible(true)}>
+          {/* <CheckCircleTwoTone
             style={{ fontSize: 64, marginBottom: 16 }}
             twoToneColor="#829fe0"
-          />
+          /> */}
           <br />
           <SubContent>신랑측 계좌번호 확인</SubContent>
         </ContactButton>
-        <ContactButton data-aos="fade-up" onClick={() => setBrideVisible(true)}>
-          <CheckCircleTwoTone
+        <ContactButton data-aos="fade-in" onClick={() => setBrideVisible(true)}>
+          {/* <CheckCircleTwoTone
             style={{ fontSize: 64, marginBottom: 16 }}
             twoToneColor="#fe7daf"
-          />
+          /> */}
           <br />
           <SubContent>신부측 계좌번호 확인</SubContent>
         </ContactButton>

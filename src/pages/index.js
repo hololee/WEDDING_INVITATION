@@ -22,9 +22,20 @@ import "aos/dist/aos.css";
 const { Footer } = Layout;
 
 const Wrapper = styled.div`
-  background: #efebe9;
-  background-image: url(${GroovePaper});
+  background: #fefefe;
   width: 100%;
+`;
+
+const BorderWrapper = styled.div`
+  background-image: url(${GroovePaper});
+  width: 90%;
+  margin: 5vw auto;
+  margin-bottom: 0;
+  background: #fefefe;
+  border-left: 1.5px solid #c4af71;
+  border-right: 1.5px solid #c4af71;
+  border-top: 1.5px solid #c4af71;
+  border-bottom: none;
 `;
 
 const IndexPage = () => {
@@ -63,26 +74,18 @@ const IndexPage = () => {
 
   return (
     <Wrapper>
-      <audio ref={audioRef} loop>
-        <source src={Song} type="audio/mpeg" />
-      </audio>
-      <Title />
-      <Greeting />
-      <Gallery />
-      <Location />
-      <Quote />
-      <CongratulatoryMoney />
+      <BorderWrapper>
+        <audio ref={audioRef} loop>
+          <source src={Song} type="audio/mpeg" />
+        </audio>
+        <Title />
+        <Greeting />
+        <Gallery />
+        <Location />
+        <Quote />
+        <CongratulatoryMoney />
+      </BorderWrapper>
       <Share />
-      <Footer
-        style={{
-          background: "#D7CCC8",
-          backgroundImage: `url(${GroovePaper})`,
-          opacity: 0.6,
-          textAlign: "center",
-        }}
-      >
-        Copyright © 2022 Shin Jooyoung
-      </Footer>
     </Wrapper>
   );
 };

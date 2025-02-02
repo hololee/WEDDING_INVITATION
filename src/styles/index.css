@@ -1,6 +1,7 @@
 :root {
-  --title-color: #d97d83;
+  --title-color: #c4af71;
 }
+
 * {
   font-family: "Noto Serif KR", serif, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
@@ -16,9 +17,11 @@
   width: 100% !important;
   max-height: 240px !important;
 }
+
 .root_daum_roughmap_landing {
   margin: auto !important;
 }
+
 .root_daum_roughmap .wrap_btn_zoom {
   display: none !important;
 }
@@ -27,33 +30,43 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 @-moz-keyframes fadein {
+
   /* Firefox */
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 @-webkit-keyframes fadein {
+
   /* Safari and Chrome */
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 @-o-keyframes fadein {
+
   /* Opera */
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -67,4 +80,46 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+@font-face {
+  font-family: "Delux_Edition";
+  src: url("../assets/fonts/Deluxe-Edition-Demo.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  src: url("../assets/fonts/MaruBuri-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  font-weight: 300;
+  font-style: normal;
+  src: url('../assets/fonts/MaruBuri-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../assets/fonts/MaruBuri-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  font-weight: 600;
+  font-style: normal;
+  src: url('../assets/fonts/MaruBuri-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../assets/fonts/MaruBuri-Bold.woff') format('woff');
 }

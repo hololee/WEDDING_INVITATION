@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `weddingInvitation`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://wedding.hololee.com`
   },
   plugins: ["gatsby-plugin-styled-components"]
 };

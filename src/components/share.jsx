@@ -1,29 +1,18 @@
-import React from "react";
-import CopyToClipboard from "react-copy-to-clipboard";
-import { Button, Divider, message } from "antd";
+import React, { useState } from "react";
+import { Button, message } from "antd";
 import { MessageFilled, LinkOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 
 import {
   KAKAOTALK_API_TOKEN,
   KAKAOTALK_SHARE_IMAGE,
-  WEDDING_INVITATION_URL,
   GROOM_NAME,
   BRIDE_NAME,
 } from "../../config";
 
 const Wrapper = styled.div`
-  padding-top: 42px;
   width: 100%;
   text-align: center;
-`;
-
-const Title = styled.span`
-  font-size: 1rem;
-  color: var(--title-color);
-  font-weight: bold;
-  opacity: 0.85;
-  margin-bottom: 0;
 `;
 
 const KakaoTalkShareButton = styled(Button)`
@@ -44,19 +33,19 @@ const KakaoTalkShareButton = styled(Button)`
 `;
 
 const LinkShareButton = styled(Button)`
-  background-color: rgba(217, 125, 131, 0.2);
-  border-color: rgba(217, 125, 131, 0.2) !important;
+  background-color: rgba(234, 218, 172, 0.52);
+  border-color: rgba(234, 218, 172, 0.52) !important;
   color: var(--title-color) !important;
   font-weight: 400 !important;
   align-item: center;
   width: 100%;
   &:hover {
-    background-color: rgb(217 125 131 / 48%) !important;
-    border-color: rgb(217 125 131 / 48%) !important;
+    background-color: rgb(234, 219, 172) !important;
+    border-color: rgb(234, 218, 172) !important;
     color: var(--title-color) !important;
   }
 `;
-const Share = () => {
+const ShareKakao = () => {
   const createKakaoButton = () => {
     // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
     if (window.Kakao) {
@@ -99,15 +88,33 @@ const Share = () => {
     }
   };
 
+  const [copied, setCopied] = useState(false);
+  const shareLink = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: document.title, // 현재 페이지 제목
+          text: "이 웹페이지를 공유합니다!",
+          url: window.location.href, // 현재 페이지 URL
+        });
+      } catch (error) {
+        console.error("공유 실패:", error);
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          setCopied(true);
+          message.success("청첩장 링크가 복사되었습니다.");
+        });
+      }
+    } else {
+      console.log("Web Share API를 지원하지 않는 브라우저입니다.");
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        setCopied(true);
+        message.success("청첩장 링크가 복사되었습니다.");
+      });
+    }
+  };
+
   return (
     <Wrapper>
-      <Divider
-        data-aos="fade-up"
-        plain
-        style={{ marginTop: 0, marginBottom: 32 }}
-      >
-        <Title>청첩장 공유하기</Title>
-      </Divider>
       <KakaoTalkShareButton
         style={{ margin: 0 }}
         icon={<MessageFilled />}
@@ -117,18 +124,16 @@ const Share = () => {
       >
         카카오톡으로 공유하기
       </KakaoTalkShareButton>
-      <CopyToClipboard text={WEDDING_INVITATION_URL}>
-        <LinkShareButton
-          style={{ margin: 0 }}
-          icon={<LinkOutlined />}
-          size="large"
-          onClick={() => message.success("청첩장 링크가 복사되었습니다.")}
-        >
-          링크로 공유하기
-        </LinkShareButton>
-      </CopyToClipboard>
+      <LinkShareButton
+        style={{ margin: 0 }}
+        icon={<LinkOutlined />}
+        size="large"
+        onClick={shareLink}
+      >
+        링크로 공유하기
+      </LinkShareButton>
     </Wrapper>
   );
 };
 
-export default Share;
+export default ShareKakao;
