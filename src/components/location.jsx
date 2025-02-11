@@ -5,18 +5,18 @@ import CopyIcon from "../assets/copy.png";
 
 const Wrapper = styled.div`
   padding-top: 42px;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 `;
 
 const Title = styled.span`
   font-size: 1rem;
+  color: var(--title-color);
   font-family: "MaruBuri";
   font-weight: 600;
-  color: var(--title-color);
-  font-weight: bold;
   opacity: 0.85;
   margin-bottom: 0;
+  text-align: center;
 `;
 
 const Content = styled.p`
@@ -168,7 +168,7 @@ const Location = () => {
         <br />
         1호선 2호선 신도림역
         <br />
-        <SupportContent>신도림역 3번출구 테크노마트 판매동 지하1층과 직접 연결되어 있습니다.</SupportContent>
+        <SupportContent>신도림역 3번출구 테크노마트 판매동 지하1층과 연결</SupportContent>
         <br />
         <br />
         <br />

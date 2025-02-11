@@ -11,9 +11,8 @@ import {
 } from "../../config";
 
 const Wrapper = styled.div`
-  padding-top: 42px;
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
 `;
 
 const Title = styled.p`
@@ -46,6 +45,8 @@ const GroomBride = styled.p`
   margin-bottom: 0px;
   width: 100%;
   text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;
 
 const Greeting = () => {

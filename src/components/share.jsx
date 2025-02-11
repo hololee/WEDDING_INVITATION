@@ -16,6 +16,8 @@ const Wrapper = styled.div`
 `;
 
 const KakaoTalkShareButton = styled(Button)`
+  font-family: "MaruBuri";
+  font-weight: 700;
   background: #fee500;
   border-color: #fee500;
   color: #181600;
@@ -33,10 +35,11 @@ const KakaoTalkShareButton = styled(Button)`
 `;
 
 const LinkShareButton = styled(Button)`
+  font-family: "MaruBuri";
+  font-weight: 700;
   background-color: rgba(234, 218, 172, 0.52);
   border-color: rgba(234, 218, 172, 0.52) !important;
   color: var(--title-color) !important;
-  font-weight: 400 !important;
   align-item: center;
   width: 100%;
   &:hover {

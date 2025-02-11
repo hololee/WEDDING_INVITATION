@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "antd/dist/antd.css";
+import Intro from "../components/intro";
 import Gallery from "../components/gallery";
 import Greeting from "../components/greeting";
 import Title from "../components/title";
@@ -24,13 +25,14 @@ const Wrapper = styled.div`
 
 const BorderWrapper = styled.div`
   background-image: url(${GroovePaper});
-  width: 90%;
-  margin: 5vw auto;
+  width: 94%;
+  margin: 3vw auto;
+  margin-top: 0;
   margin-bottom: 0;
   background: #fefefe;
   border-left: 1.5px solid #c4af71;
   border-right: 1.5px solid #c4af71;
-  border-top: 1.5px solid #c4af71;
+  // border-top: 1.5px solid #c4af71;
   border-bottom: none;
 `;
 
@@ -71,10 +73,11 @@ const IndexPage = () => {
 
   return (
     <Wrapper>
+      <audio ref={audioRef} loop>
+        <source src={Song} type="audio/mpeg" />
+      </audio>
+      <Intro />
       <BorderWrapper>
-        <audio ref={audioRef} loop>
-          <source src={Song} type="audio/mpeg" />
-        </audio>
         <Title />
         <Greeting />
         <Gallery />

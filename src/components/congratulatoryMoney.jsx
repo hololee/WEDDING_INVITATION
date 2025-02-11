@@ -19,29 +19,20 @@ import {
 
 const Wrapper = styled.div`
   padding-top: 42px;
-  padding-bottom: 18px;
-  width: 80%;
+  padding-bottom: 1px;
+  width: 90%;
   margin: 0 auto;
   text-align: center;
 `;
 
 const Title = styled.p`
-  font-size: 1rem;
+   font-size: 1rem;
+  color: var(--title-color);
   font-family: "MaruBuri";
   font-weight: 600;
-  color: var(--title-color);
-  font-weight: bold;
   opacity: 0.85;
   margin-bottom: 0;
-`;
-
-const Content = styled.p`
-  font-size: 0.875rem;
-  font-family: "MaruBuri";
-  font-weight: 400;
-  line-height: 1.75;
-  opacity: 0.75;
-  margin-bottom: 42px;
+  text-align: center;
 `;
 
 const Description = styled.p`
@@ -54,7 +45,8 @@ const Description = styled.p`
 `;
 
 const ButtonWrap = styled.div`
-  margin-bottom: 2.125rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,9 +101,6 @@ const CongratulatoryMoney = () => {
       >
         <Title>축하의 마음을 전하세요</Title>
       </Divider>
-      <Content data-aos="fade-in">
-        축하의 마음을 담아 축의금을 전달해 보세요.
-      </Content>
 
       <ButtonWrap>
         <ContactButton data-aos="fade-in" onClick={() => setGroomVisible(true)}>
