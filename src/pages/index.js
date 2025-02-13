@@ -57,18 +57,17 @@ const IndexPage = () => {
 
   const audioRef = useRef(null);
   useEffect(() => {
-    const enableAudio = () => {
-      if (audioRef.current) {
-        audioRef.current.play().catch(error => console.error("자동 재생 차단:", error));
-        document.removeEventListener("click", enableAudio);
-      }
-    };
-
-    document.addEventListener("click", enableAudio);
-
-    return () => {
-      document.removeEventListener("click", enableAudio);
-    };
+    const audio = audioRef.current;
+    if (audio) {
+      audio.muted = true;
+      audio.play().then(() => {
+        setTimeout(() => {
+          audio.muted = false;
+        }, 500);
+      }).catch((e) => {
+        console.log("자동 재생 실패:", e);
+      });
+    }
   }, []);
 
   return (
