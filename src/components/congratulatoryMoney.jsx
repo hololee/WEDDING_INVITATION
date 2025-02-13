@@ -99,7 +99,7 @@ const CongratulatoryMoney = () => {
         plain
         style={{ marginTop: 0, marginBottom: 32 }}
       >
-        <Title>축하의 마음을 전하세요</Title>
+        <Title>마음 전하실 곳</Title>
       </Divider>
 
       <ButtonWrap>
