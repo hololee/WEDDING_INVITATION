@@ -63,7 +63,7 @@ const IndexPage = () => {
       audio.play().then(() => {
         setTimeout(() => {
           audio.muted = false;
-        }, 500);
+        }, 100);
       }).catch((e) => {
         console.log("자동 재생 실패:", e);
       });
