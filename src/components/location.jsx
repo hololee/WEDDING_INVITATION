@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Divider, message } from "antd";
 import styled from "styled-components";
 import CopyIcon from "../assets/copy.png";
+import map1 from "../assets/map1.webp";
+import map2 from "../assets/map2.webp";
+import map3 from "../assets/map3.webp";
 
 const Wrapper = styled.div`
   padding-top: 42px;
@@ -32,6 +35,16 @@ const Content = styled.p`
   margin: 0;
 `;
 
+const ButtomContent = styled.p`
+  font-size: 0.875rem;
+  font-family: "MaruBuri";
+  font-weight: 400;
+  line-height: 1.75;
+  width: 100%;
+  text-align: center;
+  margin: 5px;
+`;
+
 const SupportContent = styled.span`
   font-size: 0.72rem;
   font-family: "MaruBuri";
@@ -53,7 +66,7 @@ const CopyContainer = styled.div`
   width: 100%;
   text-align: center;
   padding-top: 42px;
-  padding-bottom: 42px;
+  padding-bottom: 8px;
   margin: 0;
   cursor: pointer;
   text-decoration: underline; /* 호버 시 밑줄 추가 */
@@ -74,6 +87,21 @@ const Icon = styled.img`
 const Map = styled.div`
   width: 100%;
   padding: 0;
+`;
+
+const Button = styled.div`
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 0 20px 10px;
+  background-color: rgba(233, 233, 233, 0.2);
+  border: 1px solid rgba(196, 175, 113, 0.3);
+  border-radius: 5px;
+  margin-top: 10px;
+
+  &:active {
+    background-color: rgba(233, 233, 233, 0.7);
+  }
 `;
 
 const Location = () => {
@@ -137,6 +165,30 @@ const Location = () => {
     });
   };
 
+  const iconStyle = {
+    width: '12vw',
+    height: '12vw',
+    borderRadius: '12px',
+    border: "1px solid rgba(196, 175, 113, 0.3)",
+    objectFit: 'cover',
+    cursor: 'pointer',
+  };
+
+  // 지도앱 별 링크.
+  const IconLinks = (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '36px', padding: '12px' }}>
+      <a href="https://naver.me/F1rOzxTQ">
+        <img src={map1} alt="Map 1" style={iconStyle} />
+      </a>
+      <a href="https://tmap.life/cad6fca0">
+        <img src={map2} alt="Map 2" style={iconStyle} />
+      </a>
+      <a href="https://map.kakao.com/link/to/웨딩시티신도림점,37.5070431,126.8902185">
+        <img src={map3} alt="Map 3" style={iconStyle} />
+      </a>
+    </div>
+  );
+
   return (
     <Wrapper>
       <Divider plain style={{ marginTop: 0, marginBottom: 32 }}>
@@ -152,6 +204,7 @@ const Location = () => {
           <br />
           웨딩시티 11층 그랜드 볼룸 <Icon src={CopyIcon} alt="복사" />
         </CopyContainer>
+        {IconLinks}
         <br />
         <br />
         <Title>버스 이용시</Title>
@@ -186,7 +239,9 @@ const Location = () => {
         <br />
         ○○에서 ○○시 ○○분에 출발 예정
         <br />
-        <SupportContent>탑승 여부를 알려주세요.</SupportContent>
+        <Button onClick={() => window.location.href = 'https://forms.gle/hfFTiZocV74fTeRo8'}>
+          <ButtomContent>탑승 등록하기</ButtomContent>
+        </Button>
         <br />
       </Content>
     </Wrapper>

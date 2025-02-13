@@ -58,9 +58,13 @@ const ContactButton = styled.div`
   align-items: center;
   display: flex;
   margin: 0 20px 10px;
-  background-color: rgb(233 233 233 / 20%);
-  border: 1px solid rgba(196, 175, 113, 0.31);
+    background-color: rgba(233, 233, 233, 0.2);
+  border: 1px solid rgba(196, 175, 113, 0.3);
   border-radius: 5px;
+
+  &:active {
+    background-color: rgba(233, 233, 233, 0.7);
+  }
 `;
 
 const SubContent = styled.p`
@@ -112,10 +116,6 @@ const CongratulatoryMoney = () => {
           <SubContent><SubBlueContent>신랑</SubBlueContent>측 계좌번호 확인</SubContent>
         </ContactButton>
         <ContactButton data-aos="fade-in" onClick={() => setBrideVisible(true)}>
-          {/* <CheckCircleTwoTone
-            style={{ fontSize: 64, marginBottom: 16 }}
-            twoToneColor="#fe7daf"
-          /> */}
           <br />
           <SubContent><SubPinkContent>신부</SubPinkContent>측 계좌번호 확인</SubContent>
         </ContactButton>
