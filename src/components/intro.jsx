@@ -1,16 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import BackgroundVideo from "../assets/video.mp4";
-
+import BackgroundImage from "../assets/BackgroundImage.png";
 
 const VideoWrapper = styled.div`
   position: relative; /* 내부 요소의 절대 위치를 기준 잡기 */
   width: 100%;
-`;
-
-const VideoBackground = styled.video`
-  width: 100%;
-  display: block;
 `;
 
 const Overlay = styled.div`
@@ -46,9 +40,7 @@ const Intro = () => {
       <WeddingInvitation>
         WEDDING INVITATION
       </WeddingInvitation>
-      <VideoBackground autoPlay loop muted playsInline={true}>
-        <source src={BackgroundVideo} type="video/mp4" />
-      </VideoBackground>
+      <img src={BackgroundImage} alt="BackgroundImage" width="100%" />
       <Overlay />
 
     </VideoWrapper>
