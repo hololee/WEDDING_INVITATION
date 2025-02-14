@@ -230,17 +230,17 @@ const Location = () => {
         <br />
         테크노마트 지하주차장 이용(B3~B7)
         <br />
-        <SupportContent>주차요원의 안내를 받으세요.</SupportContent>
+        <SupportContent>주차요원의 안내를 받으세요</SupportContent>
         <br />
         <br />
         <br />
-        <Title>전세버스 안내</Title>
+        <Title>직통버스 안내</Title>
         <br />
         <br />
-        ○○에서 ○○시 ○○분에 출발 예정
+        전주에서 출발하는 버스를 준비했습니다
         <br />
         <Button onClick={() => window.location.href = 'https://forms.gle/hfFTiZocV74fTeRo8'}>
-          <ButtomContent>탑승 등록하기</ButtomContent>
+          <ButtomContent>탑승 안내 및 등록</ButtomContent>
         </Button>
         <br />
       </Content>
