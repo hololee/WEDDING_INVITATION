@@ -8,13 +8,13 @@ const VideoWrapper = styled.div`
 `;
 
 const Overlay = styled.div`
-  margin-top: 3vw;
+  margin-top: 10px;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, 0%);
-  width: 94%;
-  height: 100%;
+  width: calc(100% - 20px);
+  height: calc(100% - 10px);
   border-left: 1.5px solid rgb(255 255 255 / 60%);
   border-right: 1.5px solid rgb(255 255 255 / 60%);
   border-top: 1.5px solid rgb(255 255 255 / 60%);
@@ -24,7 +24,7 @@ const Overlay = styled.div`
 
 const WeddingInvitation = styled.p`
   position: absolute;
-  margin-top: 6vw;
+  margin-top: 24px;
   top: 0px;
   left: 50%;
   transform: translate(-50%, 0%);
@@ -55,7 +55,7 @@ const Intro = () => {
     const height = canvas.height = overlayRef.current.offsetHeight;
 
     const petals = [];
-    const maxHeight = height * 0.9; // 패딩 적용: 너무 아래까지 내려오지 않도록 제한
+    const maxHeight = height * 1;
 
     class Petal {
       constructor() {

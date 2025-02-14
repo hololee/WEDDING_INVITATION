@@ -17,6 +17,15 @@ import Quote from "../components/quote";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+const AppContainer = styled.div`
+  max-width: 540px;
+  margin: 0 auto;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  background: #fefefe;
+`;
+
 const Wrapper = styled.div`
   background: #fefefe;
   width: 100%;
@@ -24,15 +33,12 @@ const Wrapper = styled.div`
 
 const BorderWrapper = styled.div`
   background-image: url(${GroovePaper});
-  width: 94%;
-  margin: 3vw auto;
-  margin-top: 0;
-  margin-bottom: 0;
+  width: calc(100% - 20px);
   background: #fefefe;
   border-left: 1.5px solid #c4af71;
   border-right: 1.5px solid #c4af71;
-  // border-top: 1.5px solid #c4af71;
   border-bottom: none;
+  margin: 0 auto;
 `;
 
 const IndexPage = () => {
@@ -55,18 +61,20 @@ const IndexPage = () => {
   });
 
   return (
-    <Wrapper>
-      <Intro />
-      <BorderWrapper>
-        <Title />
-        <Greeting />
-        <Gallery />
-        <Location />
-        <Quote />
-        <CongratulatoryMoney />
-      </BorderWrapper>
-      <Share />
-    </Wrapper>
+    <AppContainer>
+      <Wrapper>
+        <Intro />
+        <BorderWrapper>
+          <Title />
+          <Greeting />
+          <Gallery />
+          <Location />
+          <Quote />
+          <CongratulatoryMoney />
+        </BorderWrapper>
+        <Share />
+      </Wrapper>
+    </AppContainer>
   );
 };
 

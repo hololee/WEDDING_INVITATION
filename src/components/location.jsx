@@ -166,9 +166,9 @@ const Location = () => {
   };
 
   const iconStyle = {
-    width: '12vw',
-    height: '12vw',
-    borderRadius: '12px',
+    width: '42px',
+    height: '42px',
+    borderRadius: '8px',
     border: "1px solid rgba(196, 175, 113, 0.3)",
     objectFit: 'cover',
     cursor: 'pointer',
