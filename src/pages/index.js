@@ -56,18 +56,39 @@ const IndexPage = () => {
   });
 
   const audioRef = useRef(null);
+  const interactionFlag = useRef(false);
+
   useEffect(() => {
-    const audio = audioRef.current;
-    if (audio) {
-      audio.muted = true;
-      audio.play().then(() => {
-        setTimeout(() => {
-          audio.muted = false;
-        }, 100);
-      }).catch((e) => {
-        console.log("자동 재생 실패:", e);
-      });
-    }
+    const handleInteraction = () => {
+      if (!interactionFlag.current) {
+        audioRef.current.muted = true;
+        audioRef.current.play().then(() => {
+          setTimeout(() => {
+            audioRef.current.muted = false;
+          }, 100);
+        }).catch((e) => console.log('첫 재생 실패:', e));
+        interactionFlag.current = true;
+      }
+    };
+
+    // 한 번만 실행되도록
+    window.addEventListener('click', handleInteraction, { once: true });
+    window.addEventListener('touchstart', handleInteraction, { once: true });
+
+    // 자동 재생 시도 (일정 시간 후)
+    const timer = setTimeout(() => {
+      if (interactionFlag.current) {
+        audioRef.current.play().catch((e) => {
+          console.error('자동 재생 실패:', e);
+        });
+      }
+    }, 3000);
+
+    return () => {
+      window.removeEventListener('click', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
