@@ -32,6 +32,7 @@ const GroomBride = styled.p`
   font-weight: 600;
   margin-top: 32px; // wedding invitation 추가시 제거 필요
   margin-bottom: 32px;
+  color:rgb(57, 57, 57);
 `;
 
 const AndSymbol = styled.span`
@@ -42,6 +43,7 @@ const AndSymbol = styled.span`
   font-size: 1.2rem; /* 크기 조절 */
   font-weight: 600;
   margin-bottom: 24px;
+  color: rgb(57, 57, 57);
 `;
 
 const Schedule = styled.p`
